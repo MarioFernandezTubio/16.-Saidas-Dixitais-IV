@@ -1,0 +1,50 @@
+/* 
+
+A fórmula que teño que implemetar para o led é a seguinte:
+
+S = A̅ . B + A . C
+
+*/
+
+#define A 10
+#define B 9
+#define C 8
+#define LED 3
+
+bool a = 0;
+bool b = 0;
+bool c = 0;
+
+
+void setup()
+    
+{
+  pinMode(A, INPUT);             // Pulsador 1 no pin 10
+  pinMode(B, INPUT);             // Pulsador 2 no pin 9
+  pinMode(C, INPUT);             // Pulsador 3 no pin 8
+  pinMode(LED, OUTPUT);          // SAÍDA LED  no pin 3
+  
+  
+}
+
+void loop(){
+  
+  a = digitalRead(A); 
+  b = digitalRead(B);
+  c = digitalRead(C);
+ 
+  if ( (!a && b) ){              // A̅ . B 
+    digitalWrite(LED, HIGH);     // Encende o LED
+  }
+  
+  else if ( (a && c) ){          // + A . C
+    digitalWrite(LED, HIGH);     // Encende o LED
+  
+  }
+  
+  
+  else{
+    digitalWrite(LED, LOW);      // Non encende o LED
+      
+    }
+}
